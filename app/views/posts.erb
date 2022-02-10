@@ -1,0 +1,22 @@
+<h1>Hacker News</h1>
+
+<form action = "/posts" method = "POST">
+  <label for="title">Title</label>
+  <input type="text" name="title" id="title">
+  <label for="url">URL</label>
+  <input type="text" name="url" id="url">
+  <input type="submit">
+</form>
+# TODO: list posts here. You can use instance variables set in the controller
+<ul>
+  <% @posts.each do |post| %>
+    <li>
+      <a href="<%= post.url %>" target="_blank">
+        <%= "#{post.title} - #{post.votes} votes" %></a>
+        <form action="/posts/<%= post.id%>/upvote" method = "POST">
+          <input type="hidden" name="_method" value="PUT">
+          <input type="submit" value="upvote">
+        </form>
+    </li>
+  <% end %>
+</ul>

@@ -1,0 +1,8 @@
+<h2>Error posting</h2>
+
+<% if @post.errors.present? %>
+  <p>
+    Unable to create the Post. Please review following errors:<br/>
+    <strong><%= @post.errors.full_messages.join(' and ') %></strong>
+  </p>
+<% end %>
